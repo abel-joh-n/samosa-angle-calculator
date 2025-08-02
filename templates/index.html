@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samosa Angle Detector</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            margin-top: 60px;
+            padding: 30px 35px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            background-color: #fafafa;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #0b3954;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #062636;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #333;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .error {
+            color: #d9534f;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Samosa Angle Detector</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if output_image %}
+            <h3>Detected Angles:</h3>
+            <ul>
+                <li>Angle A: {{ angles[0] | round(2) }}°</li>
+                <li>Angle B: {{ angles[1] | round(2) }}°</li>
+                <li>Angle C: {{ angles[2] | round(2) }}°</li>
+            </ul>
+            <img src="{{ url_for('static', filename='uploads/output.jpg') }}" alt="Samosa with angles">
+        {% elif error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
