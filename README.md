@@ -53,7 +53,7 @@ This Python function detects a triangle in an image, calculates its three angles
 
 Project Demo
 
-https://drive.google.com/file/d/1RkLsPPMqQV_5eoZLTXf55mXTziGR31Yv/view?usp=drive_link
+https://drive.google.com/file/d/1eqVJhktgWhCyUeWqYIvDV2ZlF7dm3Rbs/view?usp=sharing
 This is a Samosa Angle Detector web interface. It allows users to upload a photo of a samosa, analyzes it to detect triangle corners, calculates the three internal angles, and displays both the angle values and the processed image with angles overlaid.
 
 
